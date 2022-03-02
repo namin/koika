@@ -23,6 +23,18 @@ Extraction \"collatz.ml\" collatz.prog."))
 
 
 ;; -*- dune -*-
+(subdir "_objects/combinational_proof_tutorial.v"
+ (rule (write-file "combinational_proof_tutorial_extr.v"
+                   "Require Coq.extraction.Extraction examples.combinational_proof_tutorial.
+Extraction \"combinational_proof_tutorial.ml\" combinational_proof_tutorial.prog."))
+ (coq.extraction
+  (prelude combinational_proof_tutorial_extr)
+  (extracted_modules combinational_proof_tutorial)
+  (theories Koika examples)
+  (flags "-w" "-overriding-logical-loadpath")))
+
+
+;; -*- dune -*-
 (subdir "_objects/conflicts.v"
  (rule (write-file "conflicts_extr.v"
                    "Require Coq.extraction.Extraction examples.conflicts.
@@ -42,30 +54,6 @@ Extraction \"conflicts_modular.ml\" conflicts_modular.prog."))
  (coq.extraction
   (prelude conflicts_modular_extr)
   (extracted_modules conflicts_modular)
-  (theories Koika examples)
-  (flags "-w" "-overriding-logical-loadpath")))
-
-
-;; -*- dune -*-
-(subdir "_objects/cosimulation.v"
- (rule (write-file "cosimulation_extr.v"
-                   "Require Coq.extraction.Extraction examples.cosimulation.
-Extraction \"cosimulation.ml\" cosimulation.prog."))
- (coq.extraction
-  (prelude cosimulation_extr)
-  (extracted_modules cosimulation)
-  (theories Koika examples)
-  (flags "-w" "-overriding-logical-loadpath")))
-
-
-;; -*- dune -*-
-(subdir "_objects/datatypes.v"
- (rule (write-file "datatypes_extr.v"
-                   "Require Coq.extraction.Extraction examples.datatypes.
-Extraction \"datatypes.ml\" datatypes.prog."))
- (coq.extraction
-  (prelude datatypes_extr)
-  (extracted_modules datatypes)
   (theories Koika examples)
   (flags "-w" "-overriding-logical-loadpath")))
 

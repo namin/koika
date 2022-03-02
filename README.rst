@@ -867,8 +867,6 @@ The following list shows the current state of the repo:
    - |examples/combinational_proof_tutorial.v|_: Tutorial: Verifying a small combinational circuit
    - |examples/conflicts.v|_: Understanding conflicts and forwarding
    - |examples/conflicts_modular.v|_: Understanding conflicts and forwarding, with modules
-   - |examples/cosimulation.v|_: Using black-box Verilog models (combining Cuttlesim and Verilator)
-   - |examples/datatypes.v|_: Using structures, enums, and arrays
    - |examples/external_rule.v|_: Calling external (verilog) modules from |koika|
    - |examples/fft.v|_: Computing an FFT
    - |examples/fir.v|_: Computing a FIR (Coq version)
@@ -920,7 +918,6 @@ The following list shows the current state of the repo:
    ``trivial_state_machine.etc/``
       - |tests/trivial_state_machine.etc/stm.v|_: Cleaned-up state machine example
 
-   - |tests/arrays.lv|_: Unit tests for array functions
    - |tests/bigint.lv|_: Computations with large bitvectors (the simulator uses boost for >64 bits)
    - |tests/comparisons.lv|_: Unit tests for comparison operators
    - |tests/cross_cycle.v|_: Cross-cycle optimization in Cuttlesim models
