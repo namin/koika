@@ -29,7 +29,8 @@ Definition r idx : R idx :=
   end.
 
 Definition _state0 : uaction reg_t ext_fn_t :=
-  {{ guard(read0(input_valid));
+  {{ guard(read0(state) == Ob~0~0);
+     guard(read0(input_valid));
      let v := read0(input) in
      (if !v then
        write0(state, Ob~0~1)
@@ -38,7 +39,8 @@ Definition _state0 : uaction reg_t ext_fn_t :=
      write0(input_valid, Ob~0) }}.
 
 Definition _state1 : uaction reg_t ext_fn_t :=
-  {{ guard(read0(input_valid));
+  {{ guard(read0(state) == Ob~0~1);
+     guard(read0(input_valid));
      let v := read0(input) in
      (if v then
        write0(state, Ob~1~0)
@@ -47,12 +49,14 @@ Definition _state1 : uaction reg_t ext_fn_t :=
      write0(input_valid, Ob~0) }}.
 
 Definition _state2 : uaction reg_t ext_fn_t :=
-  {{ guard(read0(input_valid));
+  {{ guard(read0(state) == Ob~1~0);
+     guard(read0(input_valid));
      write0(state, Ob~1~1);
      write0(input_valid, Ob~0) }}.
 
 Definition _state3 : uaction reg_t ext_fn_t :=
-  {{ guard(read0(input_valid));
+  {{ guard(read0(state) == Ob~1~1);
+     guard(read0(input_valid));
      write0(input_valid, Ob~0) }}.
 
 (* TODO: how can these be part of the interface, akin to Bluespec methods? *)
