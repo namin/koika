@@ -119,6 +119,18 @@ Extraction \"gcd_machine.ml\" gcd_machine.prog."))
 
 
 ;; -*- dune -*-
+(subdir "_objects/machine01.v"
+ (rule (write-file "machine01_extr.v"
+                   "Require Coq.extraction.Extraction examples.machine01.
+Extraction \"machine01.ml\" machine01.prog."))
+ (coq.extraction
+  (prelude machine01_extr)
+  (extracted_modules machine01)
+  (theories Koika examples)
+  (flags "-w" "-overriding-logical-loadpath")))
+
+
+;; -*- dune -*-
 (subdir "_objects/method_call.v"
  (rule (write-file "method_call_extr.v"
                    "Require Coq.extraction.Extraction examples.method_call.
